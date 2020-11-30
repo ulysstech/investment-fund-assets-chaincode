@@ -332,18 +332,18 @@ export class FundContract extends Contract {
     return true;
   }
 
-  async SetCode(ctx, legalForm, extendedAssetClass, SSRI, SEDOL) {
+  async SetCode(ctx, legalForm, extendedAssetClass, SSRI, SEDOL, ISIN) {
     await ctx.stub.putState(legalForm, Buffer.from(legalForm));
     await ctx.stub.putState(
       extendedAssetClass,
       Buffer.from(extendedAssetClass)
     );
     await ctx.stub.putState(SSRI, Buffer.from(SSRI));
-    await ctx.stub.putState(SSRI, Buffer.from(SSRI));
+    await ctx.stub.putState(ISIN, Buffer.from(ISIN));
     await ctx.stub.putState(SEDOL, Buffer.from(SEDOL));
 
     console.log(
-      `legalForm: ${legalForm}, extendedAssetClass: ${extendedAssetClass}, SSRI: ${SSRI}, SSRI: ${SSRI}, SEDOL: ${SEDOL}`
+      `legalForm: ${legalForm}, extendedAssetClass: ${extendedAssetClass}, SSRI: ${SSRI}, ISIN: ${ISIN}, SEDOL: ${SEDOL}`
     );
     return true;
   }
